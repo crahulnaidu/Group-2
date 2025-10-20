@@ -1,7 +1,7 @@
 import numpy as np
 
 def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarray:
-  if skeleton is None or isinstance(skeleton,np.ndarray) or skeleton.size==0:
+  if skeleton is None or not isinstance(skeleton,np.ndarray) or skeleton.size==0:
     return np.array([])
     
   has_conf=skeleton.shape[1]>=3 
