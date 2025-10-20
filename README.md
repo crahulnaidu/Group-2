@@ -5,7 +5,7 @@ This repository contains our work on pose detection, mapping, and simulation usi
 ## Members
 - Person A – Pose Detection
 - Person B – Mapping
-- Person C – Simulation
+- Person C – Joint angle calculation
 
 ## How to Run
 1. Clone the repo
