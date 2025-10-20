@@ -1,11 +1,11 @@
 # Group-2 Project
 
-This repository contains our work on pose detection, mapping, and simulation using OpenPose and PyBullet.
+This repository contains our work on pose detection,Mapping to 25 key points,join angle conversion
 
 ## Members
 - Person A – Pose Detection
 - Person B – Mapping
-- Person C – Joint angle calculation
+- Person C – Joint angle conversion
 
 ## How to Run
 1. Clone the repo
