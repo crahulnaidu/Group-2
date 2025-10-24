@@ -38,6 +38,9 @@ def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarr
     ang=(ang+np.pi)%(2*np.pi)-np.pi
     
     return ang
+
+  def idx(i):
+    return i
     
   angles={}  
   angles['neck'] = angle_btw(idx(0), idx(1), idx(8))
