@@ -1,10 +1,10 @@
 # Group-2 Project
 
-This repository contains our work on pose detection, mapping, and simulation using OpenPose and PyBullet.
+This repository contains our work on pose detection,mapping and jont angle calculation using OpenPose.
 
 ## Members
 - Person A – Pose Detection
-- Person B – Mapping
+- Person B – Selecting person with max bounding area
 - Person C – Joint angle calculation
 
 ## How to Run
