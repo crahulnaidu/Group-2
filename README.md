@@ -1,6 +1,6 @@
 # Group-2 Project
 
-This repository contains our work on pose detection,mapping and jont angle calculation using OpenPose.
+This repository contains our work on pose detection,mapping and joint angle calculation using OpenPose.
 
 ## Members
 - Person A – Pose Detection
