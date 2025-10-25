@@ -31,8 +31,8 @@ def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarr
     if n1<1e-6 or n2<1e-6:
       return 0.0
       
-    a1=np.arctan2(v1[1],v1[1])
-    a2=np.arctan2(v2[1],v2[1])
+    a1=np.arctan2(v1[1],v1[0])
+    a2=np.arctan2(v2[1],v2[0])
     
     ang=a2-a1
     ang=(ang+np.pi)%(2*np.pi)-np.pi
