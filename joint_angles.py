@@ -1,11 +1,17 @@
 import numpy as np
 
+#function to convert 25 key points to 13 joint angles
+
 def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarray:
+  #checking if the skeleton is empty 
   if skeleton is None or not isinstance(skeleton,np.ndarray) or skeleton.size==0:
     return np.array([])
-    
+
+  #bool variable to check if the no of columns is >=3
   has_conf=skeleton.shape[1]>=3 
-  
+
+  #visible function is used to check if a key point has probability or confidence greater than threshold or is a valid keypoint in 
+  the np array
   def visible(i):
     if i<0 or i>=skeleton.shape[0]:
       return False
@@ -13,24 +19,32 @@ def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarr
       return not(skeleton[i,0]==0 and skeleton[i,1]==0)
       
     return skeleton[i,2]>=conf_thresh
-    
+
+  
   def angle_btw(p1_id,p2_id,p3_id):
     if not(visible(p1_id) and visible(p2_id) and visible(p3_id)):
       return 0.0
-      
+
+    #getting the corresponding keypoint array from the np array skeleton
+    
     p1=skeleton[p1_id,:2].astype(np.float64)
     p2=skeleton[p2_id,:2].astype(np.float64)
     p3=skeleton[p3_id,:2].astype(np.float64)
-    
+
+    #calculating the difference vector
     v1=p1-p2
     v2=p3-p2
     
     n1=np.linalg.norm(v1)
     n2=np.linalg.norm(v2)
+
+    #if either of the vector length is smaller than 10^-6 then simply return 0.0
     
     if n1<1e-6 or n2<1e-6:
       return 0.0
-      
+
+    #calculating the angle between the vector's using their tangent
+    
     a1=np.arctan2(v1[1],v1[0])
     a2=np.arctan2(v2[1],v2[0])
     
@@ -41,7 +55,9 @@ def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarr
 
   def idx(i):
     return i
-    
+
+  #calculating the angles for 13 joints and storing them in the angle dictionary 
+  
   angles={}  
   angles['neck'] = angle_btw(idx(0), idx(1), idx(8))
   
