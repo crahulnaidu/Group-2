@@ -1,9 +1,9 @@
 import argparse
 
-from load_image import load_image_rgb 
-from skeleton_extractor import PoseEstimator
-from Max_skeleton import select_max_bounding_area_skeleton
-from joint_angles import convert_to_joint_angles 
+from task_11_load_image import load_image_rgb 
+from task_12_skeleton_extractor import PoseEstimator
+from task_131_max_skeleton import select_max_bounding_area_skeleton
+from task_132_joint_angles import convert_to_joint_angles 
 
 
 def main(image_path, openpose_path=None, visualize=True, output_path="output.jpg"):
