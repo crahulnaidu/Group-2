@@ -45,13 +45,15 @@ def convert_to_joint_angles(skeleton:np.ndarray,conf_thresh:float=0.1)->np.ndarr
 
     #calculating the angle between the vector's using their tangent
     
-    a1=np.arctan2(v1[1],v1[0])
-    a2=np.arctan2(v2[1],v2[0])
+    a1 = np.arctan2(v1[1], v1[0])
+    a2 = np.arctan2(v2[1], v2[0])
     
-    ang=a2-a1
-    ang=(ang+np.pi)%(2*np.pi)-np.pi
+    ang = a2 - a1
     
-    return ang
+    # Normalize the angle to be in the range of [-pi, pi]
+    ang = (ang + np.pi) % (2 * np.pi) - np.pi
+
+    return ang  # returns radians
 
   def idx(i):
     return i
