@@ -4,8 +4,8 @@ import sys
 import os
 import argparse
 
-from joint_angles import convert_to_joint_angles
-from Max_skeleton import select_max_bounding_area_skeleton
+from task_132_joint_angles import convert_to_joint_angles
+from task_131_max_skeleton import select_max_bounding_area_skeleton
 from itertools import zip_longest
 
 
